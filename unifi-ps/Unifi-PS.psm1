@@ -1,0 +1,1 @@
+Set-UnifiAPIConfig -ContentType "application/json" -Port "8443" -Protocol "https"
