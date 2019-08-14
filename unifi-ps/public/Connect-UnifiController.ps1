@@ -31,18 +31,19 @@ function Connect-UnifiController {
         password = $Credential.GetNetworkCredential().Password
     } | ConvertTo-Json
 
-    if ($Global:UnifiAPI_SkipCertificateCheck) {
-        try {
-            Invoke-RestMethod -Uri $LoginUri -Method Post -Body $RequestBody -ContentType "application/json" -SessionVariable Session -SkipCertificateCheck | Out-Null
-        } catch {
-            Write-Error $PSItem.Exception.Message
-        }
-    } else {
-        try {
-            Invoke-RestMethod -Uri $LoginUri -Method Post -Body $RequestBody -ContentType "application/json" -SessionVariable Session
-        } catch {
-            Write-Error $PSItem.Exception.Message
-        }
+    $RequestParameters = @{
+        Uri = $LoginUri
+        Method = Post
+        Body = $RequestBody
+        ContentType = "application/json"
+        SessionVariable = Session
+        SkipCertificateCheck = $Global:UnifiAPI_SkipCertificateCheck
+    }
+
+    try {
+        Invoke-RestMethod $RequestParameters | Out-Null
+    } catch {
+        Write-Error $PSItem.Exception.Message
     }
 
     if ($Session) {

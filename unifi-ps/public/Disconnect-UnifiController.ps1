@@ -2,18 +2,17 @@ function Disconnect-UnifiController {
     if ($Global:UnifiAPI_Session) {
         $LogoutUri = "$Global:UnifiAPI_Protocol" + "://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/logout"
 
-        if ($Global:UnifiAPI_SkipCertificateCheck) {
-            try {
-                Invoke-RestMethod -Uri $LogoutUri -Method Get -WebSession $Global:UnifiAPI_Session -SkipCertificateCheck
-            } catch {
-                Write-Error $PSItem.Exception.Message
-            }
-        } else {
-            try {
-                Invoke-RestMethod -Uri $LogoutUri -Method Get -WebSession $Global:UnifiAPI_Session
-            } catch {
-                Write-Error $PSItem.Exception.Message
-            }         
+        $RequestParameters = @{
+            Uri = $LogoutUri
+            Method = Get
+            WebSession = $Global:UnifiAPI_Session
+            SkipCertificateCheck = $Global:UnifiAPI_SkipCertificateCheck
+        }
+
+        try {
+            Invoke-RestMethod $RequestParameters | Out-Null
+        } catch {
+            Write-Error $PSItem.Exception.Message
         }
 
         Remove-Variable -Name "UnifiAPI_Session"
