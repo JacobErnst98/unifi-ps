@@ -5,9 +5,6 @@ function Set-UnifiAPIConfig {
         [string] $BaseUri,
 
         [Parameter(Mandatory = $false)]
-        [string] $ContentType,
-
-        [Parameter(Mandatory = $false)]
         [string] $Port,
 
         [Parameter(Mandatory = $false)]
@@ -22,10 +19,6 @@ function Set-UnifiAPIConfig {
 
     if ($BaseUri) {
         Set-Variable -Name "UnifiAPI_BaseUri" -Value $BaseUri -Scope Global -Force
-    }
-
-    if ($ContentType) {
-        Set-Variable -Name "UnifiAPI_ContentType" -Value $ContentType -Scope Global -Force
     }
 
     if ($Port) {
