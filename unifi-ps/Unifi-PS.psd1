@@ -66,10 +66,26 @@ Copyright = '(c) 2019 Dustin Riley. All rights reserved.'
 # FormatsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-NestedModules = @()
+# NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @()
+FunctionsToExport = @(
+    "Connect-UnifiController",
+    "Disconnect-UnifiController",
+    "Get-UnifiAdminUsers",
+    "Get-UnifiController",
+    "Get-UnifiLoggedInUser",
+    "Get-UnifiSite",
+    "Get-UnifiSiteClients",
+    "Get-UnifiSiteCountryCodes",
+    "Get-UnifiSiteDevices",
+    "Get-UnifiSiteEvents",
+    "Get-UnifiSiteHealth",
+    "Get-UnifiSiteRFChannels",
+    "Get-UnifiSites",
+    "Remove-UnifiAPIConfig",
+    "Set-UnifiAPIConfig"
+)
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

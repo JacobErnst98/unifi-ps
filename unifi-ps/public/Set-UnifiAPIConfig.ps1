@@ -26,7 +26,7 @@ function Set-UnifiAPIConfig {
     }
 
     if ($Protocol) {
-        Set-Variable -Name -"UnifiAPI_Protocol" -Value $Protocol -Scope Global -Force
+        Set-Variable -Name "UnifiAPI_Protocol" -Value $Protocol -Scope Global -Force
     }
 
     if ($SkipCertificateCheck) {

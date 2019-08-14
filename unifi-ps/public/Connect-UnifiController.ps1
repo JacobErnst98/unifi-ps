@@ -20,8 +20,9 @@ function Connect-UnifiController {
         return
     }
 
-    if (!$Global:UnifAPI_Protocol) {
+    if (!$Global:UnifiAPI_Protocol) {
         Write-Error "Unifi API Protocol has not been set."
+        return
     }
 
     $LoginUri = "$Global:UnifiAPI_Protocol" + "://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/login"
@@ -33,15 +34,15 @@ function Connect-UnifiController {
 
     $RequestParameters = @{
         Uri = $LoginUri
-        Method = Post
+        Method = [Microsoft.PowerShell.Commands.WebRequestMethod]::Post
         Body = $RequestBody
         ContentType = "application/json"
-        SessionVariable = Session
+        SessionVariable = "Session"
         SkipCertificateCheck = $Global:UnifiAPI_SkipCertificateCheck
     }
 
     try {
-        Invoke-RestMethod $RequestParameters | Out-Null
+        Invoke-RestMethod @RequestParameters | Out-Null
     } catch {
         Write-Error $PSItem.Exception.Message
     }

@@ -23,7 +23,7 @@ function Invoke-UnifiAPIRequest {
     }
 
     try {
-        $Response = (Invoke-RestMethod $RequestParameters).data
+        $Response = (Invoke-RestMethod @RequestParameters).data
     } catch {
         Write-Error $PSItem.Exception.Message
     }

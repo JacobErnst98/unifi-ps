@@ -18,13 +18,15 @@ function Get-UnifiController {
 
     $RequestParameters = @{
         Uri = $ApiUri
-        Method = Post
+        Method = [Microsoft.PowerShell.Commands.WebRequestMethod]::Get
         ContentType = "application/json"
         SkipCertificateCheck = $SkipCertificateCheck
     }
 
+    $Response = $false
+
     try {
-        $Response = (Invoke-RestMethod $RequestParameters).data
+        $Response = (Invoke-RestMethod @RequestParameters).meta
     } catch {
         Write-Error $PSItem.Exception.Message
     }

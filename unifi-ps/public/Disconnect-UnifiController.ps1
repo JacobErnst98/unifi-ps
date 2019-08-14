@@ -4,18 +4,18 @@ function Disconnect-UnifiController {
 
         $RequestParameters = @{
             Uri = $LogoutUri
-            Method = Get
+            Method = [Microsoft.PowerShell.Commands.WebRequestMethod]::Get
             WebSession = $Global:UnifiAPI_Session
             SkipCertificateCheck = $Global:UnifiAPI_SkipCertificateCheck
         }
 
         try {
-            Invoke-RestMethod $RequestParameters | Out-Null
+            Invoke-RestMethod @RequestParameters | Out-Null
         } catch {
             Write-Error $PSItem.Exception.Message
         }
 
-        Remove-Variable -Name "UnifiAPI_Session"
+        Remove-Variable -Name "UnifiAPI_Session" -Scope Global -Force -ErrorAction SilentlyContinue
     } else {
         Write-Error "No session exists to disconnect from."
     }
