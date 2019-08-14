@@ -1,6 +1,6 @@
 function Set-UnifiAPIConfig {
     [CmdletBinding()]
-    param(
+    Param(
         [Parameter(Mandatory = $false)]
         [string] $BaseUri,
 

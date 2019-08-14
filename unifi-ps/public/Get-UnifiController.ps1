@@ -1,25 +1,26 @@
-function Invoke-UnifiAPIRequest {
+function Get-UnifiController {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true)]
-        [string] $Uri,
+        [string] $BaseUri,
 
         [Parameter(Mandatory = $true)]
-        [Microsoft.PowerShell.Commands.WebRequestMethod] $Method,
+        [string] $Port,
+
+        [Parameter(Mandatory = $true)]
+        [string] $Protocol,
 
         [Parameter(Mandatory = $false)]
-        [PSObject] $Body
+        [bool] $SkipCertificateCheck = $false
     )
 
-    $Response = $false
+    $ApiUri = "$Protocol" + "://" + "$BaseUri" + ":" + "$Port" + "/status"
 
     $RequestParameters = @{
         Uri = $ApiUri
-        Method = $Method
+        Method = Post
         ContentType = "application/json"
-        Body = $Body
-        WebSession = $Global:UnifiAPI_Session
-        SkipCertificateCheck = $Global:UnifiAPI_SkipCertificateCheck
+        SkipCertificateCheck = $SkipCertificateCheck
     }
 
     try {
