@@ -21,28 +21,3 @@ function Disconnect-UnifiController {
         Write-Error "No session exists to disconnect from."
     }
 }
-
-function Disconnect-UnifiController {
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory = $true)]
-        [PSCustomObject]$UnifiSession
-    )
-
-    $ApiUri = "https://" + $UnifiSession.Uri + ":" + $UnifiSession.Port + "/logout"
-
-    if ($UnifiSession.SkipCertificateCheck) {
-        try {
-            Invoke-RestMethod -Uri $ApiUri -Method Get -WebSession $UnifiSession.Session -SkipCertificateCheck
-        } catch {
-            Write-Error $PSItem.Exception.Message
-        }
-        
-    } else {
-        try {
-            Invoke-RestMethod -Uri $ApiUri -Method Get -WebSession $UnifiSession.Session
-        } catch {
-            Write-Error $PSItem.Exception.Message
-        }
-    }
-}
