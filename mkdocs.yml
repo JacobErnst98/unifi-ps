@@ -1,0 +1,26 @@
+site_name: unifi-ps - PowerShell Unifi REST API Wrapper Module
+site_author: Dustin Riley
+repo_url: https://github.com/derpenstiltskin/unifi-ps
+theme: readthedocs
+copyright: "unifi-ps is licensed under the <a href='https://github.com/derpenstiltskin/unifi-s/raw/master/LICENSE'>MIT license</a>"
+pages:
+  - Home: index.md
+  - Module Help:
+    - unifi-ps: unifi-ps.md
+    - Connect-UnifiController: module/Connect-UnifiController.md
+    - Disconnect-UnifiController: module/Disconnect-UnifiController.md
+    - Get-UnifiAdminUsers: module/Get-UnifiAdminUsers.md
+    - Get-UnifiController: module/Get-UnifiController.md
+    - Get-UnifiLoggedInUser: module/Get-UnifiLoggedInUser.md
+    - Get-UnifiSite: module/Get-UnifiSite.md
+    - Get-UnifiSiteAlarms: module/Get-UnifiSiteAlarms.md
+    - Get-UnifiSiteClients: module/Get-UnifiSiteClients.md
+    - Get-UnifiSiteCountryCodes: module/Get-UnifiSiteCountryCodes.md
+    - Get-UnifiSiteDevices: module/Get-UnifiSiteDevices.md
+    - Get-UnifiSiteEvents: module/Get-UnifiSiteEvents.md
+    - Get-UnifiSiteHealth: module/Get-UnifiSiteHealth.md
+    - Get-UnifiSiteRFChannels: module/Get-UnifiSiteRFChannels.md
+    - Get-UnifiSites: module/Get-UnifiSites.md
+    - Remove-UnifiApiConfig: module/Remove-UnifiApiConfig.md
+    - Set-UnifiAPIConfig: module/Set-UnifiAPIConfig.md
+
