@@ -1,6 +1,6 @@
 ---
 external help file: Unifi-PS-help.xml
-Module Name: unifi-ps
+Module Name: Unifi-PS
 online version: https://github.com/derpenstiltskin/unifi-ps/blob/master/docs/Connect-UnifiController.md
 schema: 2.0.0
 ---

@@ -1,16 +1,16 @@
 ---
-Module Name: unifi-ps
+Module Name: Unifi-PS
 Module Guid: 47d502d7-42be-4380-80a3-18c9fcd40bd1
 Download Help Link: 
 Help Version: 0.0.1.0
 Locale: en-US
 ---
 
-# unifi-ps Module
+# Unifi-PS Module
 ## Description
 unifi-ps is a PowerShell Unifi REST API Wrapper Module providing read access to the API.
 
-## unifi-ps Functions
+## Unifi-PS Functions
 ### [Connect-UnifiController](module/Connect-UnifiController.md)
 Connect to a Unifi Controller.
 

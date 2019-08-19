@@ -24,16 +24,16 @@ GUID = '47d502d7-42be-4380-80a3-18c9fcd40bd1'
 Author = 'Dustin Riley'
 
 # Company or vendor of this module
-CompanyName = 'Dustin Riley'
+CompanyName = ''
 
 # Copyright statement for this module
 Copyright = '(c) 2019 Dustin Riley. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'PowerShell module to query the Unifi Controller REST API. '
 
 # Minimum version of the PowerShell engine required by this module
-# PowerShellVersion = ''
+PowerShellVersion = '5.0'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
@@ -91,7 +91,7 @@ FunctionsToExport = @(
 CmdletsToExport = @()
 
 # Variables to export from this module
-VariablesToExport = '*'
+VariablesToExport = @()
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
 AliasesToExport = @()
@@ -111,13 +111,13 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @("Unifi", "API", "REST", "Ubiquiti")
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = "https://github.com/derpenstiltskin/unifi-ps/blob/master/LICENSE"
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = "https://github.com/derpenstiltskin/unifi-ps/"
 
         # A URL to an icon representing this module.
         # IconUri = ''

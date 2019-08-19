@@ -1,12 +1,12 @@
-# unifi-ps
+# Unifi-PS
 PowerShell Unifi REST API Wrapper Module
 
 Project Site: [https://github.com/derpenstiltskin/unifi-ps](https://github.com/derpenstiltskin/unifi-ps)
 
 - [unifi-ps](#unifi-ps)
     - [What is the Unifi REST API?](#what-is-the-unifi-rest-api)
-    - [What is unifi-ps?](#what-is-unifi-ps)
-- [Using unifi-ps](#using-unifi-ps)
+    - [What is Unifi-PS?](#what-is-unifi-ps)
+- [Using Unifi-PS](#using-unifi-ps)
     - [Installation](#installation)
     - [Documentation and Help](#documentation-and-help)
     - [Quickstart](#quickstart)
@@ -14,16 +14,16 @@ Project Site: [https://github.com/derpenstiltskin/unifi-ps](https://github.com/d
 ## What is the Unifi REST API?
 [Unifi Controllers](https://www.ui.com/software/), used for controlling Ubiquiti Unifi devices have an unpublished REST API that can be used to get data and modify settings stored in the Unifi Controller.
 
-## What is unifi-ps?
+## What is Unifi-PS?
 unifi-ps is a Unifi REST API Wrapper Module for PowerShell.
 
 
-# Using unifi-ps
+# Using Unifi-PS
 unifi-ps is available on the [PowerShell Gallery](https://powershellgallery.com/packages/unifi-ps).
 
 ## Installation
 ```powershell
-Install-Module -Name unifi-ps
+Install-Module -Name Unifi-PS
 ```
 
 ## Documentation and Help

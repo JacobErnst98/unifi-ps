@@ -1,7 +1,7 @@
 ---
 external help file: Unifi-PS-help.xml
-Module Name: unifi-ps
-online version:
+Module Name: Unifi-PS
+online version: https://github.com/derpenstiltskin/unifi-ps/blob/master/docs/Get-UnifiAdminUsers.md
 schema: 2.0.0
 ---
 
