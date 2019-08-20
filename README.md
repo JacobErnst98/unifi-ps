@@ -14,26 +14,26 @@ PowerShell Unifi REST API Wrapper Module
     - [Quickstart](#quickstart)
 - [Licensing](#licensing)
 
-## What is the Unifi REST API?
-[Unifi Controllers](https://www.ui.com/software/), used for controlling Ubiquiti Unifi devices have an unpublished REST API that can be used to get data and modify settings stored in the Unifi Controller.
+### What is the Unifi REST API?
+[Unifi Controllers](https://www.ui.com/software/), used for managing Ubiquiti Unifi devices have an unpublished REST API that can be used to query data and modify settings.
 
-## What is Unifi-PS?
-Unifi-PS is a Unifi REST API Wrapper Module for PowerShell.
+### What is Unifi-PS?
+Unifi-PS is a Unifi REST API Wrapper Module for PowerShell used to query data from the Unifi Controller. This module does not contain functionality to make settings changes as this REST API is unpublished.
 
 # Using Unifi-PS
-unifi-ps is available on the [PowerShell Gallery](https://powershellgallery.com/packages/unifi-ps).
+Unifi-PS is available on the [PowerShell Gallery](https://powershellgallery.com/packages/unifi-ps).
 
-## Installation
+### Installation
 ```powershell
 Install-Module -Name Unifi-PS
 ```
 
-## Documentation and Help
+### Documentation and Help
 The online documentation for this module is available at [https://unifi-ps.readthedocs.io](https://unifi-ps.readthedocs.io).
 
 The console documentation can be accessed with `Get-Help`.
 
-## Quickstart
+### Quickstart
 ```powershell
 Set-UnifiAPIConfig -BaseUri "unifi.contoso.com"
 Connect-UnifiController
