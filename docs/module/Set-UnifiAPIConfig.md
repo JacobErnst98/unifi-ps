@@ -1,6 +1,6 @@
 ---
 external help file: Unifi-PS-help.xml
-Module Name: Unifi-PS
+Module Name: unifi-ps
 online version: https://github.com/derpenstiltskin/unifi-ps/blob/master/docs/Set-UnifiAPIConfig.md
 schema: 2.0.0
 ---
@@ -13,8 +13,8 @@ Sets the Unifi API configuration for connecting to a Unifi Controller.
 ## SYNTAX
 
 ```
-Set-UnifiAPIConfig [[-BaseUri] <String>] [[-Port] <String>] [[-Protocol] <String>]
- [[-SkipCertificateCheck] <Boolean>] [[-Session] <PSObject>] [<CommonParameters>]
+Set-UnifiAPIConfig [[-BaseUri] <String>] [[-Port] <String>] [[-SkipCertificateCheck] <Boolean>]
+ [[-Session] <PSObject>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -56,21 +56,6 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Protocol
-TCP protocol used to connect to the Unifi Controller.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

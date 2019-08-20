@@ -12,7 +12,7 @@
 RootModule = 'Unifi-PS.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1.1'
+ModuleVersion = '0.0.2.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -33,7 +33,7 @@ Copyright = '(c) 2019 Dustin Riley. All rights reserved.'
 Description = 'PowerShell module to query the Unifi Controller REST API. '
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '6.0'
+PowerShellVersion = '5.0'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''

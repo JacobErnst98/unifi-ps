@@ -5,7 +5,7 @@ function Get-UnifiSiteRFChannels {
         [string] $SiteName
     )
 
-    $ApiUri = "$Global:UnifiAPI_Protocol" + "://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/current-channel"
+    $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/current-channel"
 
     $Response = Invoke-UnifiAPIRequest -Uri $ApiUri -Method Get
 

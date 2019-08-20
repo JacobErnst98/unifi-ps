@@ -196,7 +196,12 @@ PS C:\&gt; Connect-UnifiController -Credential (Get-Credential)</dev:code>
         </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/derpenstiltskin/unifi-ps/blob/master/docs/Get-UnifiAdminUsers.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
@@ -237,18 +242,6 @@ PS C:\&gt; Connect-UnifiController -Credential (Get-Credential)</dev:code>
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-          <maml:name>Protocol</maml:name>
-          <maml:Description>
-            <maml:para>TCP protocol used to connect to the Unifi Controller.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
           <maml:name>SkipCertificateCheck</maml:name>
           <maml:Description>
@@ -280,18 +273,6 @@ PS C:\&gt; Connect-UnifiController -Credential (Get-Credential)</dev:code>
         <maml:name>Port</maml:name>
         <maml:Description>
           <maml:para>TCP port used to connect to the Unifi Controller.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>Protocol</maml:name>
-        <maml:Description>
-          <maml:para>TCP protocol used to connect to the Unifi Controller.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -1231,18 +1212,6 @@ PS C:\&gt; Connect-UnifiController -Credential (Get-Credential)</dev:code>
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-          <maml:name>Protocol</maml:name>
-          <maml:Description>
-            <maml:para>TCP protocol used to connect to the Unifi Controller.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-          <dev:type>
-            <maml:name>String</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
           <maml:name>SkipCertificateCheck</maml:name>
           <maml:Description>
@@ -1286,18 +1255,6 @@ PS C:\&gt; Connect-UnifiController -Credential (Get-Credential)</dev:code>
         <maml:name>Port</maml:name>
         <maml:Description>
           <maml:para>TCP port used to connect to the Unifi Controller.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
-        <dev:type>
-          <maml:name>String</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
-        <maml:name>Protocol</maml:name>
-        <maml:Description>
-          <maml:para>TCP protocol used to connect to the Unifi Controller.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>

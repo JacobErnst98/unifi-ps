@@ -12,4 +12,4 @@ foreach ($Import in @($Public + $Private)) {
     }
 }
 
-Set-UnifiAPIConfig -Port "8443" -Protocol "https"
+Set-UnifiAPIConfig -Port "8443" -SkipCertificateCheck $false

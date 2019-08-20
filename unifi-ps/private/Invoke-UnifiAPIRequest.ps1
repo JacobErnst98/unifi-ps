@@ -5,10 +5,7 @@ function Invoke-UnifiAPIRequest {
         [string] $Uri,
 
         [Parameter(Mandatory = $true)]
-        [Microsoft.PowerShell.Commands.WebRequestMethod] $Method,
-
-        [Parameter(Mandatory = $false)]
-        [PSObject] $Body
+        [Microsoft.PowerShell.Commands.WebRequestMethod] $Method
     )
 
     $Response = $false
@@ -17,15 +14,47 @@ function Invoke-UnifiAPIRequest {
         Uri = $ApiUri
         Method = $Method
         ContentType = "application/json"
-        Body = $Body
         WebSession = $Global:UnifiAPI_Session
-        SkipCertificateCheck = $Global:UnifiAPI_SkipCertificateCheck
     }
 
     try {
+        if ($Global:UnifiAPI_SkipCertificateCheck) {
+            if ($PSVersionTable.PSVersion.Major -ge 6) {
+                $RequestParameters.SkipCertificateCheck = $Global:UnifiAPI_SkipCertificateCheck
+            } else {
+                if (-not("dummy" -as [type])) {
+                    add-type -TypeDefinition @"
+                        using System;
+                        using System.Net;
+                        using System.Net.Security;
+                    using System.Security.Cryptography.X509Certificates;
+                
+                    public static class Dummy {
+                        public static bool ReturnTrue(object sender,
+                            X509Certificate certificate,
+                            X509Chain chain,
+                            SslPolicyErrors sslPolicyErrors) { return true; }
+                
+                        public static RemoteCertificateValidationCallback GetDelegate() {
+                            return new RemoteCertificateValidationCallback(Dummy.ReturnTrue);
+                        }
+                    }
+"@
+                }
+                
+                [System.Net.ServicePointManager]::ServerCertificateValidationCallback = [dummy]::GetDelegate()
+                [Net.ServicePointManager]::SecurityProtocol = ([Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls11 -bor [Net.SecurityProtocolType]::Tls12)
+        
+            }
+        }    
+
         $Response = (Invoke-RestMethod @RequestParameters).data
     } catch {
         Write-Error $PSItem.Exception.Message
+    } finally {
+        if ($PSVersionTable.PSVersion.Major -lt 6 -and $Global:UnifiAPI_SkipCertificateCheck) {
+            [Net.ServicePointManager]::ServerCertificateValidationCallback = $null
+        }
     }
 
     return $Response

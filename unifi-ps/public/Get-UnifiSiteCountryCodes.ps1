@@ -5,7 +5,7 @@ function Get-UnifiSiteCountryCodes {
         [string] $SiteName
     )
 
-    $ApiUri = "$Global:UnifiAPI_Protocol" + "://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/ccode" 
+    $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/ccode" 
     
     $Response = Invoke-UnifiAPIRequest -Uri $ApiUri -Method Get
 

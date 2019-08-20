@@ -1,18 +1,50 @@
 function Disconnect-UnifiController {
     if ($Global:UnifiAPI_Session) {
-        $LogoutUri = "$Global:UnifiAPI_Protocol" + "://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/logout"
+        $LogoutUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/logout"
 
         $RequestParameters = @{
             Uri = $LogoutUri
             Method = [Microsoft.PowerShell.Commands.WebRequestMethod]::Get
             WebSession = $Global:UnifiAPI_Session
-            SkipCertificateCheck = $Global:UnifiAPI_SkipCertificateCheck
         }
 
         try {
+            if ($Global:UnifiAPI_SkipCertificateCheck) {
+                if ($PSVersionTable.PSVersion.Major -ge 6) {
+                    $RequestParameters.SkipCertificateCheck = $Global:UnifiAPI_SkipCertificateCheck
+                } else {
+                    if (-not("dummy" -as [type])) {
+                        add-type -TypeDefinition @"
+                            using System;
+                            using System.Net;
+                            using System.Net.Security;
+                        using System.Security.Cryptography.X509Certificates;
+                    
+                        public static class Dummy {
+                            public static bool ReturnTrue(object sender,
+                                X509Certificate certificate,
+                                X509Chain chain,
+                                SslPolicyErrors sslPolicyErrors) { return true; }
+                    
+                            public static RemoteCertificateValidationCallback GetDelegate() {
+                                return new RemoteCertificateValidationCallback(Dummy.ReturnTrue);
+                            }
+                        }
+"@
+                    }
+                    
+                    [System.Net.ServicePointManager]::ServerCertificateValidationCallback = [dummy]::GetDelegate()
+                    [Net.ServicePointManager]::SecurityProtocol = ([Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls11 -bor [Net.SecurityProtocolType]::Tls12)
+            
+                }
+            } 
             Invoke-RestMethod @RequestParameters | Out-Null
         } catch {
             Write-Error $PSItem.Exception.Message
+        } finally {
+            if ($PSVersionTable.PSVersion.Major -lt 6 -and $Global:UnifiAPI_SkipCertificateCheck) {
+                [System.Net.ServicePointManager]::ServerCertificateValidationCallback = $null
+            }
         }
 
         Remove-Variable -Name "UnifiAPI_Session" -Scope Global -Force -ErrorAction SilentlyContinue

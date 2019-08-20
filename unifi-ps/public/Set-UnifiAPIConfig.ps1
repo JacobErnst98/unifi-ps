@@ -8,9 +8,6 @@ function Set-UnifiAPIConfig {
         [string] $Port,
 
         [Parameter(Mandatory = $false)]
-        [string] $Protocol,
-
-        [Parameter(Mandatory = $false)]
         [bool] $SkipCertificateCheck,
 
         [Parameter(Mandatory = $false)]
@@ -23,10 +20,6 @@ function Set-UnifiAPIConfig {
 
     if ($Port) {
         Set-Variable -Name "UnifiAPI_Port" -Value $Port -Scope Global -Force
-    }
-
-    if ($Protocol) {
-        Set-Variable -Name "UnifiAPI_Protocol" -Value $Protocol -Scope Global -Force
     }
 
     if ($SkipCertificateCheck) {

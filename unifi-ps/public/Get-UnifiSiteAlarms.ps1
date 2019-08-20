@@ -5,7 +5,7 @@ function Get-UnifiSiteAlarms {
         [string] $SiteName
     )
 
-    $ApiUri = "$Global:UnifiAPI_Protocol" + "://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/alarm" 
+    $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/alarm" 
 
     $Response = Invoke-UnifiAPIRequest -Uri $ApiUri -Method Get
 

@@ -1,6 +1,6 @@
 ---
 external help file: Unifi-PS-help.xml
-Module Name: Unifi-PS
+Module Name: unifi-ps
 online version: https://github.com/derpenstiltskin/unifi-ps/blob/master/docs/Get-UnifiLoggedInUser.md
 schema: 2.0.0
 ---
@@ -13,7 +13,7 @@ Retrieves details about the currently logged in user from the Unifi Controller.
 ## SYNTAX
 
 ```
-Get-UnifiLoggedInUser
+Get-UnifiLoggedInUser [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -29,6 +29,9 @@ PS C:\> Get-UnifiLoggedInUser
 This example connects retrieves the details about the currently logged in user.
 
 ## PARAMETERS
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
