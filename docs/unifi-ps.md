@@ -35,6 +35,12 @@ Retrieves clients that have connected to the Unifi Controller.
 ### [Get-UnifiSiteCountryCodes](module/Get-UnifiSiteCountryCodes.md)
 Retrieves list of site country codes from the Unifi Controller.
 
+### [Get-UnifiSiteDDNSConfig](module/Get-UnifiSiteDDNSConfig.md)
+Retrieves site dynamic DNS configuration from the Unifi Controller.
+
+### [Get-UnifiSiteDDNSInfo](module/Get-UnifiSiteDDNSInfo.md)
+Retrieves site dynamic DNS information from the Unifi Controller.
+
 ### [Get-UnifiSiteDevices](module/Get-UnifiSiteDevices.md)
 Retrieves Unifi Controller site devices.
 
@@ -44,11 +50,44 @@ Retrieves Unifi Controller site events.
 ### [Get-UnifiSiteHealth](module/Get-UnifiSiteHealth.md)
 Retrieves site health from Unifi Controller.
 
+### [Get-UnifiSitePortForwards](module/Get-UnifiSitePortForwards.md)
+Retrieves site port forwards from the Unifi Controller.
+
+### [Get-UnifiSiteRadiusAccounts](module/Get-UnifiSiteRadiusAccounts.md)
+Retrieves RADIUS accounts from the Unifi Controller.
+
+### [Get-UnifiSiteRadiusProfiles](module/Get-UnifiSiteRadiusProfiles.md)
+Retrieves RADIUS profiles from the Unifi Controller.
+
 ### [Get-UnifiSiteRFChannels](module/Get-UnifiSiteRFChannels.md)
 Retrieves site RF channels from Unifi Controller.
 
+### [Get-UnifiSiteRogueAPs](module/Get-UnifiSiteRogueAPs.md)
+Retrieves detected rogue access points from the Unifi Controller.
+
+### [Get-UnifiSiteRoutes](module/Get-UnifiSiteRoutes.md)
+Retrieves all routes from the Unifi Controller.
+
 ### [Get-UnifiSites](module/Get-UnifiSites.md)
 Retrieves site listing from the Unifi Controller.
+
+### [Get-UnifiSiteSpectrumScan](module/Get-UnifiSiteSpectrumScan.md)
+Retrieves spectrum scan results from the Unifi Controller.
+
+### [Get-UnifiSiteSwitchPortProfiles](module/Get-UnifiSiteSwitchPortProfiles.md)
+Retrieves switch port profiles from the Unifi Controller.
+
+### [Get-UnifiSiteTaggedMACs](module/Get-UnifiSiteTaggedMACs.md)
+Retrieves tagged MAC addresses from the Unifi Controller.
+
+### [Get-UnifiSiteUserFirewallGroups](module/Get-UnifiSiteUserFirewallGroups.md)
+Retrieves custom firewall groups from the Unifi Controller.
+
+### [Get-UnifiSiteUserFirewallRules](module/Get-UnifiSiteUserFirewallRules.md)
+Retrieves custom firewall rules from the Unifi Controller.
+
+### [Get-UnifiSiteUserRoutes](module/Get-UnifiSiteUserRoutes.md)
+Retrieves custom routes from the Unifi Controller.
 
 ### [Remove-UnifiAPIConfig](module/Remove-UnifiAPIConfig.md)
 Removes variables configured by Set-UnifiAPIConfig.

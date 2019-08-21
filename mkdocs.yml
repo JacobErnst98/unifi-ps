@@ -16,11 +16,24 @@ pages:
     - Get-UnifiSiteAlarms: module/Get-UnifiSiteAlarms.md
     - Get-UnifiSiteClients: module/Get-UnifiSiteClients.md
     - Get-UnifiSiteCountryCodes: module/Get-UnifiSiteCountryCodes.md
+    - Get-UnifiSiteDDNSConfig: module/Get-UnifiSiteDDNSConfig.md
+    - Get-UnifiSiteDDNSInfo: module/Get-UnifiSiteDDNSInfo.md
     - Get-UnifiSiteDevices: module/Get-UnifiSiteDevices.md
     - Get-UnifiSiteEvents: module/Get-UnifiSiteEvents.md
     - Get-UnifiSiteHealth: module/Get-UnifiSiteHealth.md
+    - Get-UnifiSitePortForwards: module/Get-UnifiSitePortForwards.md
+    - Get-UnifiSiteRadiusAccounts: module/Get-UnifiSiteRadiusAccounts.md
+    - Get-UnifiSiteRadiusProfiles: module/Get-UnifiSiteRadiusProfiles.md
     - Get-UnifiSiteRFChannels: module/Get-UnifiSiteRFChannels.md
+    - Get-UnifiSiteRogueAPs: module/Get-UnifiSiteRogueAPs.md
+    - Get-UnifiSiteRoutes: module/Get-SiteRoutes.md
     - Get-UnifiSites: module/Get-UnifiSites.md
+    - Get-UnifiSiteSpectrumScan: module/Get-UnifiSiteSpectrumScan.md
+    - Get-UnifiSiteSwitchPortProfiles: module/Get-UnifiSiteSwitchPortProfiles.md
+    - Get-UnifiSiteTaggedMACs: module/Get-UnifiSiteTaggedMACs.md
+    - Get-UnifiSiteUserFirewallGroups: module/Get-UnifiSiteUserFirewallGroups.md
+    - Get-UnifiSiteUserFirewallRules: module/Get-UnifiSiteUserFirewallRules.md
+    - Get-UnifiSiteUserRoutes: module/Get-UnifiSiteUserRoutes.md
     - Remove-UnifiApiConfig: module/Remove-UnifiApiConfig.md
     - Set-UnifiAPIConfig: module/Set-UnifiAPIConfig.md
 
