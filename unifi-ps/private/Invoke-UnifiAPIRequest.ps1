@@ -2,11 +2,13 @@ function Invoke-UnifiAPIRequest {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true)]
-        [string] $Uri,
+        [string] $Resource,
 
         [Parameter(Mandatory = $true)]
         [Microsoft.PowerShell.Commands.WebRequestMethod] $Method
     )
+
+    $ApiUri = Get-UnifiAPIURI -Resource $Resource
 
     $Response = $false
 

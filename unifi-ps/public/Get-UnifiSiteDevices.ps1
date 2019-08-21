@@ -8,13 +8,11 @@ function Get-UnifiSiteDevices {
         [bool] $Detailed = $false
     )
 
+    $Filter = "/stat/device-basic"
+
     if ($Detailed) {
-        $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/device"
-    } else {
-        $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/device-basic"
+        $Filter = "/stat/device"
     }
 
-    $Response = Invoke-UnifiAPIRequest -Uri $ApiUri -Method Get
-
-    return $Response
+    return (Invoke-UnifiAPIRequest -Resource ("api/s/" + "$SiteName" + "$Filter") -Method Get)
 }

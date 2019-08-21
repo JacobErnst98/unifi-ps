@@ -5,9 +5,5 @@ function Get-UnifiSiteSwitchPortProfiles {
         [string] $SiteName
     )
 
-    $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/rest/portconf" 
-    
-    $Response = Invoke-UnifiAPIRequest -Uri $ApiUri -Method Get
-
-    return $Response
+    return (Invoke-UnifiAPIRequest -Resource ("api/s/" + "$SiteName" + "/rest/portconf") -Method Get)
 }

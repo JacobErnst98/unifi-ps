@@ -5,13 +5,11 @@ function Get-UnifiSites {
         [bool] $ShowHealth = $false
     )
 
+    $Filter = "api/self/sites"
+
     if ($ShowHealth) {
-        $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/stat/sites"
-    } else {
-        $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/self/sites"
+        $Filter = "api/stat/sites"
     }
 
-    $Response = Invoke-UnifiAPIRequest -Uri $ApiUri -Method Get
-
-    return $Response
+    return (Invoke-UnifiAPIRequest -Resource ("$Filter") -Method Get)
 }

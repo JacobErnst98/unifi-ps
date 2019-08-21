@@ -11,10 +11,8 @@ function Get-UnifiController {
         [bool] $SkipCertificateCheck = $false
     )
 
-    $ApiUri = "https://" + "$BaseUri" + ":" + "$Port" + "/status"
-
     $RequestParameters = @{
-        Uri = $ApiUri
+        Uri = (Get-UnifiAPIURI -Resource "status")
         Method = [Microsoft.PowerShell.Commands.WebRequestMethod]::Get
         ContentType = "application/json"
     }

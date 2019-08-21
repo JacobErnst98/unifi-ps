@@ -8,13 +8,11 @@ function Get-UnifiSiteClients {
         [bool] $ActiveOnly = $false
     )
 
+    $Filter = "/rest/user"
+
     if ($ActiveOnly) {
-        $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/sta" 
-    } else {
-        $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/rest/user" 
+        $Filter = "/stat/sta"
     }
 
-    $Response = Invoke-UnifiAPIRequest -Uri $ApiUri -Method Get
-
-    return $Response
+    return (Invoke-UnifiAPIRequest -Resource ("api/s/" + "$SiteName" + "$Filter") -Method Get)
 }

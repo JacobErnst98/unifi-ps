@@ -20,15 +20,13 @@ function Connect-UnifiController {
         return
     }
 
-    $LoginUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/login"
-
     $RequestBody = @{
         username = $Credential.GetNetworkCredential().UserName
         password = $Credential.GetNetworkCredential().Password
     } | ConvertTo-Json
 
     $RequestParameters = @{
-        Uri = $LoginUri
+        Uri = (Get-UnifiAPIURI -Resource "api/login")
         Method = [Microsoft.PowerShell.Commands.WebRequestMethod]::Post
         Body = $RequestBody
         ContentType = "application/json"

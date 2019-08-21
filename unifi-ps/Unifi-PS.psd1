@@ -12,7 +12,7 @@
 RootModule = 'Unifi-PS.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.3.0'
+ModuleVersion = '0.0.3.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,6 +76,7 @@ FunctionsToExport = @(
     "Get-UnifiController",
     "Get-UnifiLoggedInUser",
     "Get-UnifiSite",
+    "Get-UnifiSiteAlarms",
     "Get-UnifiSiteClients",
     "Get-UnifiSiteCountryCodes",
     "Get-UnifiSiteDDNSConfig",

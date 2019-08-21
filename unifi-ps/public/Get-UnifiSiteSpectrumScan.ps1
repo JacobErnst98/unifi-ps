@@ -5,9 +5,5 @@ function Get-UnifiSiteSpectrumScan {
         [string] $SiteName
     )
 
-    $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/spectrum-scan" 
-    
-    $Response = Invoke-UnifiAPIRequest -Uri $ApiUri -Method Get
-
-    return $Response
+    return (Invoke-UnifiAPIRequest -Resource ("api/s/" + "$SiteName" + "/stat/spectrum-scan") -Method Get)
 }

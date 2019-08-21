@@ -1,9 +1,7 @@
 function Disconnect-UnifiController {
     if ($Global:UnifiAPI_Session) {
-        $LogoutUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/logout"
-
         $RequestParameters = @{
-            Uri = $LogoutUri
+            Uri = (Get-UnifiAPIURI -Resource "logout")
             Method = [Microsoft.PowerShell.Commands.WebRequestMethod]::Get
             WebSession = $Global:UnifiAPI_Session
         }

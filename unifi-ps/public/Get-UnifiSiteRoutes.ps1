@@ -5,9 +5,5 @@ function Get-UnifiSiteRoutes {
         [string] $SiteName
     )
 
-    $ApiUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/api/s/" + $SiteName + "/stat/routing" 
-    
-    $Response = Invoke-UnifiAPIRequest -Uri $ApiUri -Method Get
-
-    return $Response
+    return (Invoke-UnifiAPIRequest -Resource ("api/s/" + "$SiteName" + "/stat/routing") -Method Get)
 }
