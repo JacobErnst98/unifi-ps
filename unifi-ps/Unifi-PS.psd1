@@ -93,6 +93,7 @@ FunctionsToExport = @(
     "Get-UnifiSiteRogueAPs",
     "Get-UnifiSiteRoutes",
     "Get-UnifiSites",
+    "Get-UnifiSiteStats",
     "Get-UnifiSiteSpectrumScan",
     "Get-UnifiSiteSwitchPortProfiles",
     "Get-UnifiSiteTaggedMACs",
