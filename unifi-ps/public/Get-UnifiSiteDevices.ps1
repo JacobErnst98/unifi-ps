@@ -5,7 +5,7 @@ function Get-UnifiSiteDevices {
         [string] $SiteName,
 
         [Parameter(Mandatory = $false)]
-        [bool] $Detailed = $false
+        [switch] $Detailed
     )
 
     $Filter = "/stat/device-basic"

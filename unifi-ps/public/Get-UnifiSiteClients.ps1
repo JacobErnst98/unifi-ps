@@ -5,7 +5,7 @@ function Get-UnifiSiteClients {
         [string] $SiteName,
 
         [Parameter(Mandatory = $false)]
-        [bool] $ActiveOnly = $false
+        [switch] $ActiveOnly
     )
 
     $Filter = "/rest/user"
