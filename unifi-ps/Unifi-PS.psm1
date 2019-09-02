@@ -11,5 +11,3 @@ foreach ($Import in @($Public + $Private)) {
         Write-Error -Message "Failed to import function $($Import.FullName): $_"
     }
 }
-
-Set-UnifiAPIConfig -Port "8443" -SkipCertificateCheck $false

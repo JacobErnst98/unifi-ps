@@ -76,6 +76,7 @@ FunctionsToExport = @(
     "Get-UnifiController",
     "Get-UnifiLoggedInUser",
     "Get-UnifiSite",
+    "Get-UnifiSiteAdmins",
     "Get-UnifiSiteAlarms",
     "Get-UnifiSiteClients",
     "Get-UnifiSiteCountryCodes",
@@ -96,9 +97,7 @@ FunctionsToExport = @(
     "Get-UnifiSiteTaggedMACs",
     "Get-UnifiSiteUserFirewallGroups",
     "Get-UnifiSiteUserFirewallRules",
-    "Get-UnifiSiteUserRoutes",
-    "Remove-UnifiAPIConfig",
-    "Set-UnifiAPIConfig"
+    "Get-UnifiSiteUserRoutes"
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.

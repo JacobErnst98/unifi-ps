@@ -2,23 +2,31 @@ function Connect-UnifiController {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true)]
-        [System.Management.Automation.PSCredential] $Credential
+        [string] $BaseUri,
+
+        [Parameter(Mandatory = $false)]
+        [string] $Port = "8443",
+
+        [Parameter(Mandatory = $false)]
+        [switch] $SkipCertificateCheck,
+
+        [Parameter(Mandatory = $true)]
+        [System.Management.Automation.PSCredential] $Credential,
+
+        [Parameter(Mandatory = $false)]
+        [switch] $Confirm
     )
 
-    if ($Global:UnifiAPI_Session) {
+    if ($Global:UnifiAPI_Session -and !$Confirm) {
         Write-Error "Already connected to Unifi Controller, please disconnect before making another connection."
         return
+    } elseif ($Global:UnifiAPI_Session -and $Confirm) {
+        Disconnect-UnifiController
     }
 
-    if (!$Global:UnifiAPI_BaseUri) {
-        Write-Error "Unifi API Base URI has not been set."
-        return
-    }
-
-    if (!$Global:UnifiAPI_Port) {
-        Write-Error "Unifi API Port has not been set."
-        return
-    }
+    Set-Variable -Name "UnifiAPI_BaseUri" -Value $BaseUri -Scope Global -Force
+    Set-Variable -Name "UnifiAPI_Port" -Value $Port -Scope Global -Force
+    Set-Variable -Name "UnifiAPI_SkipCertificateCheck" -Value $SkipCertificateCheck -Scope Global -Force
 
     $RequestBody = @{
         username = $Credential.GetNetworkCredential().UserName

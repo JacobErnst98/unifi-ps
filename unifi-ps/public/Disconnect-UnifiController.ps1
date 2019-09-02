@@ -43,6 +43,11 @@ function Disconnect-UnifiController {
             if ($PSVersionTable.PSVersion.Major -lt 6 -and $Global:UnifiAPI_SkipCertificateCheck) {
                 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = $null
             }
+
+            Remove-Variable -Name "UnifiAPI_BaseUri" -Scope Global -Force -ErrorAction SilentlyContinue
+            Remove-Variable -Name "UnifiAPI_Port" -Scope Global -Force -ErrorAction SilentlyContinue
+            Remove-Variable -Name "UnifiAPI_SkipCertificateCheck" -Scope Global -Force -ErrorAction SilentlyContinue
+            Remove-Variable -Name "UnifiAPI_Session" -Scope Global -Force -ErrorAction SilentlyContinue
         }
 
         Remove-Variable -Name "UnifiAPI_Session" -Scope Global -Force -ErrorAction SilentlyContinue

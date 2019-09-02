@@ -5,7 +5,10 @@ function Invoke-UnifiAPIRequest {
         [string] $Resource,
 
         [Parameter(Mandatory = $true)]
-        [Microsoft.PowerShell.Commands.WebRequestMethod] $Method
+        [Microsoft.PowerShell.Commands.WebRequestMethod] $Method,
+
+        [Parameter(Mandatory = $false)]
+        [string] $Body
     )
 
     $ApiUri = Get-UnifiAPIURI -Resource $Resource
@@ -17,6 +20,10 @@ function Invoke-UnifiAPIRequest {
         Method = $Method
         ContentType = "application/json"
         WebSession = $Global:UnifiAPI_Session
+    }
+
+    if ($Body) {
+        $RequestParameters.Body = $Body
     }
 
     try {

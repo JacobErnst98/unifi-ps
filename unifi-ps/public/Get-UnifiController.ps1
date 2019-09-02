@@ -8,7 +8,7 @@ function Get-UnifiController {
         [string] $Port,
 
         [Parameter(Mandatory = $false)]
-        [bool] $SkipCertificateCheck = $false
+        [switch] $SkipCertificateCheck
     )
 
     $RequestParameters = @{
