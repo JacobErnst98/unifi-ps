@@ -70,6 +70,7 @@ PowerShellVersion = '5.0'
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @(
+    "Add-UnifiSite",
     "Connect-UnifiController",
     "Disconnect-UnifiController",
     "Get-UnifiAdminUsers",
@@ -97,7 +98,9 @@ FunctionsToExport = @(
     "Get-UnifiSiteTaggedMACs",
     "Get-UnifiSiteUserFirewallGroups",
     "Get-UnifiSiteUserFirewallRules",
-    "Get-UnifiSiteUserRoutes"
+    "Get-UnifiSiteUserRoutes",
+    "Remove-UnifiSite",
+    "Set-UnifiSiteDescription"
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
