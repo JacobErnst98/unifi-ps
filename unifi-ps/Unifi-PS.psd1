@@ -86,6 +86,7 @@ FunctionsToExport = @(
     "Get-UnifiSiteDevices",
     "Get-UnifiSiteEvents",
     "Get-UnifiSiteHealth",
+    "Get-UnifiSiteNetworks",
     "Get-UnifisitePortForwards",
     "Get-UnifiSiteRadiusAccounts",
     "Get-UnifiSiteRadiusProfiles",
