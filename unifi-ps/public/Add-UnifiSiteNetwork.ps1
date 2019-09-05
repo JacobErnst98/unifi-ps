@@ -8,7 +8,7 @@ function Add-UnifiSiteNetwork {
         [string]$IpSubnet,
 
         [Parameter(Mandatory = $true)]
-        [string]$name,
+        [string]$Name,
 
         [Parameter(Mandatory = $true)]
         [string]$Vlan,
@@ -37,9 +37,9 @@ function Add-UnifiSiteNetwork {
                 dhcpd_start= $DhcpStart
                 dhcpd_stop= $DhcpEnd
                 domain_name = $DomainName
-                name = $name
+                name = $Name
                 purpose = "corporate"
-                site_id =$SiteID
+                site_id = $SiteID
                 vlan_enabled = $true
                 vlan = $Vlan
             } | ConvertTo-Json
@@ -57,7 +57,7 @@ function Add-UnifiSiteNetwork {
             ip_subnet = $IpSubnet
             dhcpd_enabled = $false
             domain_name = $DomainName
-            name = $name
+            name = $Name
             purpose = "corporate"
             site_id =$SiteID
             vlan_enabled = $true
