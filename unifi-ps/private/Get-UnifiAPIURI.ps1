@@ -6,13 +6,39 @@ function Get-UnifiAPIURI {
     )
 
     if (!$Global:UnifiAPI_BaseUri) {
-        Write-Error "BaseUri has not be configured."
-        return
+
+        
+        $config = Import-Configuration -CompanyName "Dustin Riley" -Name "Unifi-ps"
+
+        if ($config.BaseUri){
+
+            $Global:UnifiAPI_BaseUri = $config.BaseUri
+
+        }else{
+
+            Write-Error "BaseUri has not be configured please run Set-UnifiAPIConfig."
+            return
+
+        }
+
     }
 
     if (!$Global:UnifiAPI_Port) {
-        Write-Error "Port has been configured."
-        return
+
+        $config = Import-Configuration
+
+        if ($config.port){
+
+            $Global:UnifiAPI_Port = $config.port
+
+        }
+        else{
+
+            Write-Error "Port has been configured please run Set-UnifiAPIConfig."
+            return
+
+        }
+
     }
 
     $APIUri = "https://" + "$Global:UnifiAPI_BaseUri" + ":" + "$Global:UnifiAPI_Port" + "/" + "$Resource"

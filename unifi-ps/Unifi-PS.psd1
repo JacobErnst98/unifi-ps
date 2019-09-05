@@ -51,7 +51,13 @@ PowerShellVersion = '5.0'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-# RequiredModules = @()
+RequiredModules = @(
+    @{
+        ModuleName = "Configuration"; 
+        ModuleVersion = "1.3.1"; 
+        Guid = "e56e5bec-4d97-4dfd-b138-abbaa14464a6"
+    }
+)
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -102,6 +108,7 @@ FunctionsToExport = @(
     "Get-UnifiSiteUserFirewallRules",
     "Get-UnifiSiteUserRoutes",
     "Remove-UnifiSite",
+    "Set-UnifiAPIConfig",
     "Set-UnifiSiteDescription"
 )
 

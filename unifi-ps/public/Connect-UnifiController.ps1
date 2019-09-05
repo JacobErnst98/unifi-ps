@@ -1,7 +1,7 @@
 function Connect-UnifiController {
     [CmdletBinding()]
     Param(
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [string] $BaseUri,
 
         [Parameter(Mandatory = $false)]
@@ -24,9 +24,42 @@ function Connect-UnifiController {
         Disconnect-UnifiController
     }
 
-    Set-Variable -Name "UnifiAPI_BaseUri" -Value $BaseUri -Scope Global -Force
-    Set-Variable -Name "UnifiAPI_Port" -Value $Port -Scope Global -Force
-    Set-Variable -Name "UnifiAPI_SkipCertificateCheck" -Value $SkipCertificateCheck -Scope Global -Force
+    $config = Import-Configuration -CompanyName "Dustin Riley" -Name "Unifi-ps"
+
+    if($config.BaseUri){
+        Write-Verbose "Using Value stored in config file: $($config.BaseUri)"
+        Set-Variable -Name "UnifiAPI_BaseUri" -Value $config.BaseUri -Scope Global -Force
+
+    }
+    else{
+        if($BaseUri){
+        Set-Variable -Name "UnifiAPI_BaseUri" -Value $BaseUri -Scope Global -Force
+        }
+        else{
+            Write-Error "No config file was found please use Set-UnifiAPIConfig or use the -BaseUri parameter"
+        }
+    }
+
+    if($config.Port){
+        Write-Verbose "Using Value stored in config file: $($config.port)"
+        Set-Variable -Name "UnifiAPI_Port" -Value $config.Port -Scope Global -Force
+
+    }
+    else{
+            Set-Variable -Name "UnifiAPI_Port" -Value $Port -Scope Global -Force
+    }
+
+    if($config.SkipCertificateCheck){
+        Write-Verbose "Using Value stored in config file: $($config.SkipCertificateCheck)"
+        Set-Variable -Name "UnifiAPI_SkipCertificateCheck" -Value $config.SkipCertificateCheck -Scope Global -Force
+
+    }
+    else{
+            Set-Variable -Name "UnifiAPI_SkipCertificateCheck" -Value $SkipCertificateCheck -Scope Global -Force
+    }
+
+
+    
 
     $RequestBody = @{
         username = $Credential.GetNetworkCredential().UserName
