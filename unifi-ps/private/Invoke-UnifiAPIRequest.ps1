@@ -66,5 +66,9 @@ function Invoke-UnifiAPIRequest {
         }
     }
 
-    return $Response
+    if (!$Response) {
+        return
+    } else {
+        return $Response
+    }    
 }
