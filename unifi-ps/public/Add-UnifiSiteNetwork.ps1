@@ -14,7 +14,7 @@ function Add-UnifiSiteNetwork {
         [string]$Vlan,
 
         [Parameter(Mandatory = $false)]
-        [string]$DomainName = "",
+        [string]$DomainName,
 
         [Parameter(Mandatory = $false, ParameterSetName="DHCP")]
         [switch]$DHCP,
@@ -27,42 +27,39 @@ function Add-UnifiSiteNetwork {
 
 
     )
+
+    $Body = @{}
+    $Body['enabled'] = $true
+    $Body['is_nat'] = $true
+    $Body['ip_subnet'] = $IpSubnet
+    $Body['dhcpd_enabled'] = $false
+
+    if($DomainName){
+    $Body['domain_name'] = $DomainName
+    }
+
+    $Body['name'] = $Name
+    $Body['purpose'] = "corporate"
+    $Body['site_id'] =$SiteID
+
+    if($Vlan){
+    $Body['vlan_enabled'] = $true
+    $Body['vlan'] = $Vlan
+    }
+
     if($DHCP){
         if($DhcpStart -and $DhcpEnd){
-            $Body = @{
-                enabled= $true
-                is_nat = $true
-                ip_subnet = $IpSubnet
-                dhcpd_enabled = $true
-                dhcpd_start= $DhcpStart
-                dhcpd_stop= $DhcpEnd
-                domain_name = $DomainName
-                name = $Name
-                purpose = "corporate"
-                site_id = $SiteID
-                vlan_enabled = $true
-                vlan = $Vlan
-            } | ConvertTo-Json
+            $Body['dhcpd_enabled'] = $true
+            $Body['dhcpd_start'] = $DhcpStart
+            $Body['dhcpd_stop'] = $DhcpEnd
+    
         }
         else{
             Write-Error "You must specify -DhcpStart and -DhcpEnd when using -DHCP"
             return
         }
     }
-    else {
-        $Body = @{
 
-            enabled= $true
-            is_nat = $true
-            ip_subnet = $IpSubnet
-            dhcpd_enabled = $false
-            domain_name = $DomainName
-            name = $Name
-            purpose = "corporate"
-            site_id =$SiteID
-            vlan_enabled = $true
-            vlan = $Vlan
-        } | ConvertTo-Json
-    }
-    return (Invoke-UnifiAPIRequest -Resource ("api/s/" + "$SiteID" + "/rest/networkconf") -Method Post -Body $Body)
+    $BodyJson = $Body | ConvertTo-Json
+    return (Invoke-UnifiAPIRequest -Resource ("api/s/" + "$SiteID" + "/rest/networkconf") -Method Post -Body $BodyJson)
 }
